@@ -1625,25 +1625,33 @@
   <!-- JAVASCRIPT LOGIC (SEPAY STANDARDIZED) -->
   <!-- ========================================== -->
   <script>
-    // Webhook n8n "Lead Form Webhook" (xem infrastructure/n8n-workflows/02_instant_lead_capture_routing.json).
-    // Điền URL webhook thật sau khi import & activate workflow trên n8n của bạn — để trống thì
-    // form vẫn hoạt động (khách vẫn thấy QR) nhưng lead sẽ KHÔNG được lưu vào Supabase.
-    const LEAD_CAPTURE_WEBHOOK_URL = "";
+    // Lưu lead trực tiếp vào Supabase (bảng `leads`) — RLS trong
+    // infrastructure/supabase/schema.sql đã cho phép insert công khai (WITH CHECK (true))
+    // đúng để dùng SUPABASE_ANON_KEY (publishable key) ở phía trình duyệt. Webhook SePay
+    // (sepay_webhook_fastapi.py) sẽ tra bảng này theo SĐT sau khi nhận tiền để gửi email.
+    // Đây phải là project Supabase khớp với SUPABASE_URL trong .env của webhook — 2 nơi
+    // trỏ khác project sẽ khiến webhook không bao giờ tìm thấy lead.
+    const SUPABASE_URL = "https://zsugwhhokyevvtaynxvh.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_CGqRN1U_w3w1DYw0Yuy3sw_x9xiqcqi";
 
     function captureLead(name, phone, email) {
-      if (!LEAD_CAPTURE_WEBHOOK_URL) {
-        console.warn("LEAD_CAPTURE_WEBHOOK_URL chưa cấu hình — lead sẽ không được lưu, webhook SePay sẽ không tìm thấy email để gửi tự động.");
+      if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+        console.warn("Supabase chưa cấu hình — lead sẽ không được lưu, webhook SePay sẽ không tìm thấy email để gửi tự động.");
         return;
       }
-      fetch(LEAD_CAPTURE_WEBHOOK_URL, {
+      fetch(`${SUPABASE_URL}/rest/v1/leads`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
+        },
         body: JSON.stringify({
-          full_name: name,
+          name: name,
           phone: phone,
           email: email,
           source: "master-funnel-v3",
-          industry_code: "IND-06"
+          fields: { industry_code: "IND-06" }
         })
       }).catch((err) => console.warn("Lưu lead thất bại:", err));
     }
