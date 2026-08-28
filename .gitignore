@@ -3,3 +3,18 @@
 !.env.example
 node_modules/
 .DS_Store
+
+# ==========================================================
+# Tài liệu vận hành nội bộ — chỉ dùng để Agent (Claude Code) biết
+# cần làm gì khi làm việc trong repo này. TUYỆT ĐỐI không push
+# lên GitHub, không đưa vào gói zip bàn giao khách hàng
+# (downloads/master-funnel-os-v3.0.zip). Xem CLAUDE.md để hiểu vì sao.
+# ==========================================================
+.claude/
+CLAUDE.md
+AGENTS.md
+MEMORY.md
+LOG.md
+LOGS.md
+SOP/
+scratch/
