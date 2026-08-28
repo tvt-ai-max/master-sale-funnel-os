@@ -1,0 +1,9 @@
+{
+  "name": "master-sale-funnel-os",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Master Sale Funnel OS v3.0 - Grand Slam Offer & Autonomous AI Operator Engine",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}
