@@ -329,9 +329,9 @@
 
       <!-- Header CTAs (Compact Single-Line) -->
       <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0 whitespace-nowrap">
-        <a href="#consultation" class="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-700 hover:text-brand-dark px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors">
+        <a href="#consultation" aria-label="Tư Vấn Doanh Nghiệp 1-1" class="inline-flex items-center justify-center sm:justify-start gap-1.5 text-xs sm:text-sm font-bold text-slate-700 hover:text-brand-dark w-9 h-9 sm:w-auto sm:h-auto sm:px-3 sm:py-2 rounded-lg hover:bg-slate-100 transition-colors">
           <i class="fa-solid fa-headset text-brand-orange"></i>
-          <span>Tư Vấn 1-1</span>
+          <span class="hidden sm:inline">Tư Vấn 1-1</span>
         </a>
         <a href="#offer" class="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeHover text-white text-xs sm:text-sm font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-md hover:shadow-orange-500/20 hover:-translate-y-0.5 transition-all">
           <i class="fa-solid fa-download text-xs sm:text-sm"></i>
@@ -1780,20 +1780,9 @@
     // Handle B2B Consultation Form
 
     // ==========================================
-    // 🔔 SOCIAL PROOF NOTIFICATION ENGINE (10 RANDOM SAMPLES)
+    // 🔔 SOCIAL PROOF NOTIFICATION ENGINE (DISABLED 2026-09-02 — was 10 hardcoded fake samples)
     // ==========================================
-    const socialProofData = [
-      { name: "Anh Hoàng Nam (Hà Nội)", action: "Vừa tải trọn bộ 5 Vũ Khí Master Funnel OS", time: "2 phút trước", icon: "fa-bolt-lightning" },
-      { name: "Chị Thu Trang (TP.HCM)", action: "Vừa kích hoạt thành công gói 386.000đ", time: "Vừa xong", icon: "fa-qrcode" },
-      { name: "Agency Minh Đức (Đà Nẵng)", action: "Đã tải Preset B2B SaaS & n8n Workflows", time: "5 phút trước", icon: "fa-layer-group" },
-      { name: "Anh Tuấn Anh (Hải Phòng)", action: "Vừa nhận kho mã nguồn qua Email", time: "3 phút trước", icon: "fa-envelope-circle-check" },
-      { name: "Chị Ngọc Mai (Cần Thơ)", action: "Vừa đăng ký Khảo sát Chiến lược 0đ", time: "7 phút trước", icon: "fa-headset" },
-      { name: "Anh Quang Huy (Bình Dương)", action: "Vừa kích hoạt Hermes AI Agent Core v2.0", time: "4 phút trước", icon: "fa-brain" },
-      { name: "Team TechCorp (Hà Nội)", action: "Vừa mở khóa bản quyền thương mại vĩnh viễn", time: "1 phút trước", icon: "fa-shield-check" },
-      { name: "Chị Lan Hương (Nha Trang)", action: "Vừa tải trọn bộ 6 Cỗ Máy In Tiền Presets", time: "6 phút trước", icon: "fa-chart-line" },
-      { name: "Anh Quốc Bảo (Vũng Tàu)", action: "Vừa thanh toán VietQR MB Bank thành công", time: "Vừa xong", icon: "fa-circle-check" },
-      { name: "Bác sĩ Minh Tuấn (Hà Nội)", action: "Đã kích hoạt Preset Thẩm Mỹ & Spa Clinic", time: "8 phút trước", icon: "fa-spa" }
-    ];
+    const socialProofData = [];
 
     let currentProofIndex = 0;
     let toastTimeout = null;
@@ -1801,6 +1790,11 @@
     let isToastDismissed = false;
 
     function showSocialProof() {
+      // Disabled 2026-09-02: socialProofData was 10 hardcoded fake names/actions/timestamps
+      // presented as real-time activity — not backed by real Supabase `leads` data. Removed
+      // per Tung DNA principle "Proof of work nhỏ nhưng thật > case study phóng đại".
+      return;
+      // eslint-disable-next-line no-unreachable
       if (isToastDismissed) return;
 
       const toast = document.getElementById('social-proof-toast');
