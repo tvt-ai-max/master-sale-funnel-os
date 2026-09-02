@@ -1373,7 +1373,7 @@
         Cam Kết Chất Lượng & Giá Trị Thực Chiến 100%
       </h3>
       <p class="text-slate-600 text-base leading-relaxed max-w-2xl mx-auto">
-        Do đặc tính tài sản số và mã nguồn mở đóng gói có thể sao chép và chuyển giao trực tiếp ngay sau khi tải về, hệ thống không áp dụng chính sách hoàn tiền. Thay vào đó, <strong>Nguyễn Thanh Tùng & TVT Agency cam kết chất lượng thực chiến 100%</strong>: Toàn bộ 67 tệp mã nguồn, kịch bản n8n và Hermes AI Agent đều là quy trình đã được kiểm nghiệm, vận hành thực tế và hỗ trợ kỹ thuật qua Zalo <code>0972 613 555</code>.
+        Do đặc tính tài sản số và mã nguồn mở đóng gói có thể sao chép và chuyển giao trực tiếp ngay sau khi tải về, hệ thống không áp dụng chính sách hoàn tiền. Thay vào đó, <strong>Nguyễn Thanh Tùng & TVT Agency cam kết chất lượng thực chiến 100%</strong>: Toàn bộ 67 tệp mã nguồn, kịch bản n8n và Hermes AI Agent đều là quy trình đã được kiểm nghiệm, vận hành thực tế và hỗ trợ kỹ thuật qua Zalo <code>0972 613 455</code>.
       </p>
     </div>
   </section>
@@ -1493,7 +1493,7 @@
           <div class="text-xs text-slate-300 space-y-2 pt-1">
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-phone text-brand-orange w-4"></i>
-              <span>Hotline / Zalo: <a href="https://zalo.me/0972613555" target="_blank" rel="noopener noreferrer" class="text-white font-bold hover:text-brand-orange transition-colors">0972 613 555</a></span>
+              <span>Hotline / Zalo: <a href="https://zalo.me/0972613455" target="_blank" rel="noopener noreferrer" class="text-white font-bold hover:text-brand-orange transition-colors">0972 613 455</a></span>
             </div>
             <div class="flex items-center gap-2">
               <i class="fa-solid fa-envelope text-brand-orange w-4"></i>
@@ -1503,7 +1503,7 @@
           
           <!-- Social Icons -->
           <div class="flex items-center gap-3 pt-2">
-            <a href="https://zalo.me/0972613555" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors text-xs font-bold" title="Zalo 0972613555">
+            <a href="https://zalo.me/0972613455" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors text-xs font-bold" title="Zalo 0972613455">
               <i class="fa-solid fa-comment-dots"></i>
             </a>
             <a href="https://www.facebook.com/tungsocson" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors text-xs" title="Facebook @tungsocson">
@@ -1583,7 +1583,7 @@
 
       <!-- Dynamic SePay QR Image -->
       <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 my-5 flex justify-center">
-        <img id="qr-image" src="https://qr.sepay.vn/img?bank=mbbank&acc=0912210457&template=compact&amount=386000&des=TVT%200972613555" alt="SePay VietQR Code" class="w-56 h-auto rounded-xl shadow-sm">
+        <img id="qr-image" src="https://qr.sepay.vn/img?bank=mbbank&acc=0912210457&template=compact&amount=386000&des=TVT%200972613455" alt="SePay VietQR Code" class="w-56 h-auto rounded-xl shadow-sm">
       </div>
 
       <!-- Bank Details (Standardized per toilatungplatform SePay Config) -->
@@ -1612,7 +1612,7 @@
         <div class="flex justify-between items-center">
           <span class="text-slate-500">Nội dung CK:</span>
           <div class="flex items-center gap-1.5">
-            <strong id="qr-order-code" class="text-blue-600 font-mono font-bold text-sm">TVT 0972613555</strong>
+            <strong id="qr-order-code" class="text-blue-600 font-mono font-bold text-sm">TVT 0972613455</strong>
             <button onclick="copyTransferContent()" class="text-[10px] bg-blue-100 hover:bg-blue-200 text-blue-700 px-1.5 py-0.5 rounded transition" title="Sao chép nội dung">
               <i class="fa-solid fa-copy"></i>
             </button>
@@ -1726,11 +1726,11 @@
       // Lưu lead trước khi hiện QR — webhook SePay sẽ tra theo SĐT để gửi email tự động sau khi nhận tiền.
       captureLead(name, cleanPhone, email);
 
-      // SePay Transfer Content format: TVT [PHONE] (e.g. TVT 0972613555)
+      // SePay Transfer Content format: TVT [PHONE] (e.g. TVT 0972613455)
       const transferContent = `TVT ${cleanPhone}`.toUpperCase();
       document.getElementById('qr-order-code').innerText = transferContent;
       
-      // SePay QR Image URL: https://qr.sepay.vn/img?bank=mbbank&acc=0912210457&template=compact&amount=386000&des=TVT%200972613555
+      // SePay QR Image URL: https://qr.sepay.vn/img?bank=mbbank&acc=0912210457&template=compact&amount=386000&des=TVT%200972613455
       const sepayBankId = 'mbbank';
       const sepayAccount = '0912210457';
       const amount = 386000;
